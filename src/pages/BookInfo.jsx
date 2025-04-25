@@ -5,7 +5,6 @@ import Rating from "../components/ui/Rating";
 import Price from "../components/ui/Price";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Book from "../components/ui/Book";
-import Cart from "./Cart"; 
 
 const BookInfo = ({ books, addToCart, cart }) => {
     const { id } = useParams(); 
@@ -54,7 +53,9 @@ const BookInfo = ({ books, addToCart, cart }) => {
                                     </p>
                                 </div>
                                 {bookExistsOnCart() ? (
+                                    <Link to={`/cart`} className="book__link">
                                     <button className="btn">Checkout</button>
+                                    </Link>
                                 ) : (
                                 <button className="btn" onClick={() => addBookToCart(book)}>
                                     Add to cart
